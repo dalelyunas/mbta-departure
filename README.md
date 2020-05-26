@@ -19,3 +19,5 @@ Starts the flask server using pipenv.
 The site can then be visited at localhost:5000
 
 Make sure you build before running the server so the build directory is available for the server to serve to users.
+
+![Example](example.png)
