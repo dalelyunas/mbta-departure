@@ -17,7 +17,7 @@ cache = Cache(app)
 def main():
     return render_template('index.html')
 
-@app.route('/api/v1/stops/<station>/commuterRailDepartures', methods=['GET'])
+@app.route('/api/v1/stations/<station>/commuterRailDepartures', methods=['GET'])
 def commuterRailDepartureBoard(station):
     departures = cache.get(station)
     if departures == None:

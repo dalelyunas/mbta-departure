@@ -7,7 +7,7 @@ import StationSelect, { STATIONS } from './StationSelect';
 import './App.css';
 
 function App() {
-  const [station, setStation] = useState(STATIONS[0])
+  const [station, setStation] = useState(STATIONS[0].value)
 
   return (
     <div className="app">

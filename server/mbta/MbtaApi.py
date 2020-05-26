@@ -4,7 +4,6 @@ import requests
 
 from mbta.Filter import Filter, FilterType
 from mbta.Resource import Resource
-from mbta.Departure import Departure
 from mbta.PredictionData import PredictionData
 
 

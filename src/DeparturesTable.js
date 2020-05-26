@@ -19,7 +19,7 @@ function DeparturesTable(props) {
                     {departures.map(departure => {
                         return <tr>
                             <td>{departure.carrier}</td>
-                            <td>{new Date(departure.departureTime).toLocaleTimeString()}</td>
+                            <td>{new Date(departure.time).toLocaleTimeString()}</td>
                             <td>{departure.destination}</td>
                             <td>{departure.train || 'TBA'}</td>
                             <td>{departure.track || 'TBA'}</td>

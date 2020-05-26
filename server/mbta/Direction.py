@@ -1,5 +1,5 @@
-from enum import Enum
+from enum import IntEnum
 
-class Direction(Enum):
+class Direction(IntEnum):
     DEPARTING = 0
     ARRIVING = 1

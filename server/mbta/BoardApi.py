@@ -4,7 +4,7 @@ import pytz
 from mbta.RouteType import RouteType
 from mbta.MbtaApi import mbtaApi
 from mbta.Direction import Direction
-from mbta.Departure import Departure
+from mbta.BoardEntry import BoardEntry
 
 class BoardApi():
     def _isAfterNow(self, departureTime):
@@ -16,8 +16,9 @@ class BoardApi():
         predictionData = mbtaApi.getPredictionData(station, RouteType.COMMUTER_RAIL, Direction.DEPARTING)
         if not predictionData:
             return []
-        departures = [Departure(predD) for predD in predictionData if self._isAfterNow(predD.getDepartureTime())]
-        departures.sort(key=lambda dep: dep.departureTime)
-        return departures
+        entries = [BoardEntry(predD) for predD in predictionData]
+        entries = [entry for entry in entries if self._isAfterNow(entry.time)]
+        entries.sort(key=lambda dep: dep.time)
+        return entries
 
 boardApi = BoardApi()
