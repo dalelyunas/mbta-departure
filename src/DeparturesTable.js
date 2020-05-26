@@ -1,13 +1,14 @@
 import React from 'react';
 import { useDepartures } from './useDepartures';
 
+import './DeparturesTable.css';
+
 const HEADERS = ['Carrier', 'Time', 'Destination', 'Train #', 'Track #', 'Status'];
 
-const DeparturesTable = () => {
-    const departures = useDepartures('place-north');
-
+function DeparturesTable(props) {
+    const departures = useDepartures(props.station);
     return (
-        <div>
+        <div class='container'>
             <table>
                 <thead>
                     <tr>

@@ -12,12 +12,12 @@ class BoardApi():
         time = datetime.fromisoformat(departureTime)
         return now <= time
 
-    def getCommuterRailDepartures(self, stopId):
-        predictionData = mbtaApi.getPredictionData([stopId], RouteType.COMMUTER_RAIL, Direction.DEPARTING)
+    def getCommuterRailDepartures(self, station):
+        predictionData = mbtaApi.getPredictionData(station, RouteType.COMMUTER_RAIL, Direction.DEPARTING)
         if not predictionData:
             return []
         departures = [Departure(predD) for predD in predictionData if self._isAfterNow(predD.getDepartureTime())]
         departures.sort(key=lambda dep: dep.departureTime)
-        return [dep.getDict() for dep in departures]
+        return departures
 
 boardApi = BoardApi()

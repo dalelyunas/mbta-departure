@@ -8,9 +8,7 @@ config = {
     'CACHE_TYPE': 'simple',
     'CACHE_DEFAULT_TIMEOUT': 30
 }
-app = Flask(__name__, static_url_path='',
-                  static_folder='../build',
-                  template_folder='../build')
+app = Flask(__name__, static_url_path='', static_folder='../build', template_folder='../build')
 app.config.from_mapping(config)
 
 cache = Cache(app)
@@ -19,12 +17,13 @@ cache = Cache(app)
 def main():
     return render_template('index.html')
 
-@app.route('/api/v1/stops/<stopId>/commuterRailDepartureBoard', methods=['GET'])
-def commuterRailDepartureBoard(stopId):
-    departures = cache.get(stopId)
-    if not departures:
-        departures = boardApi.getCommuterRailDepartures(stopId)
-        cache.set(stopId, departures)
-    return Response(json.dumps(departures), mimetype='application/json')
+@app.route('/api/v1/stops/<station>/commuterRailDepartures', methods=['GET'])
+def commuterRailDepartureBoard(station):
+    departures = cache.get(station)
+    if departures == None:
+        departures = boardApi.getCommuterRailDepartures(station)
+        print(json.dumps([dep.getDict() for dep in departures]))
+        cache.set(station, departures)
+    return Response(json.dumps([dep.getDict() for dep in departures]), mimetype='application/json')
 
 app.run()

@@ -8,7 +8,5 @@ class Filter():
 class FilterType(Enum):
     ROUTE = 'route'
     STOP = 'stop'
-    maxTime = 'max_time'
-    minTime = 'min_time'
     DIRECTION_ID = 'direction_id'
     ROUTE_TYPE = 'route_type'
