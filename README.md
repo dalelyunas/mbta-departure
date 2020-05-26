@@ -13,7 +13,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.
 
-## yarn start:server
+## `yarn start:server`
 
 Starts the flask server using pipenv.
 The site can then be visited at localhost:5000
