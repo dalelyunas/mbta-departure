@@ -22,7 +22,6 @@ def commuterRailDepartureBoard(station):
     departures = cache.get(station)
     if departures == None:
         departures = boardApi.getCommuterRailDepartures(station)
-        print(json.dumps([dep.getDict() for dep in departures]))
         cache.set(station, departures)
     return Response(json.dumps([dep.getDict() for dep in departures]), mimetype='application/json')
 
