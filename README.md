@@ -2,6 +2,10 @@ The project is an MBTA departure board built using Flask and React.
 
 It displays data from the MBTA v3 API.
 
+The project requires yarn, python 3.7 and pipenv to be installed.
+
+To install the project dependencies use `yarn install` and `cd server && pipenv install`.
+
 ## Available Scripts
 
 In the project directory, you can run:
