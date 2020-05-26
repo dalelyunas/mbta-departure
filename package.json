@@ -1,5 +1,5 @@
 {
-  "name": "mbta-departure-ui",
+  "name": "mbta-departure",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,9 +13,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:server": "pipenv run python3 server/server.py"
+    "start:server": "cd server && pipenv run python3 server.py"
   },
   "eslintConfig": {
     "extends": "react-app"

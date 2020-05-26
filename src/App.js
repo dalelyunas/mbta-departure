@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
 
 import DeparturesTable from './DeparturesTable';
-import Clock from './Clock';
 import StationSelect, { STATIONS } from './StationSelect';
 
-import './App.css';
+import styles from './App.module.css';
 
 function App() {
   const [station, setStation] = useState(STATIONS[0].value)
 
   return (
-    <div className="app">
-      <div class=''>
-        <Clock />
-        <StationSelect station={station} setStation={setStation} />
-      </div>
-      
-      <h1>Commuter Rail Departures</h1>
+    <div className={styles.app}>
+      <StationSelect station={station} setStation={setStation} />
+      <h3>Commuter Rail Departures</h3>
       <DeparturesTable station={station} />
     </div>
   );

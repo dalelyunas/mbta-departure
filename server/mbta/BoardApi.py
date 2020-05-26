@@ -1,5 +1,5 @@
-from datetime import datetime
 import pytz
+from datetime import datetime
 
 from mbta.RouteType import RouteType
 from mbta.MbtaApi import mbtaApi

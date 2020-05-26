@@ -1,14 +1,17 @@
 import React from 'react';
 import { useDepartures } from './useDepartures';
 
-import './DeparturesTable.css';
+import Clock from './Clock';
+
+import styles from './DeparturesTable.module.css';
 
 const HEADERS = ['Carrier', 'Time', 'Destination', 'Train #', 'Track #', 'Status'];
 
 function DeparturesTable(props) {
     const departures = useDepartures(props.station);
     return (
-        <div class='container'>
+        <div className={styles.container}>
+            <Clock />
             <table>
                 <thead>
                     <tr>
